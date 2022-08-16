@@ -1,0 +1,26 @@
+{
+    "folders":
+    [
+        {
+            "path": "bin/..",
+            "file_exclude_patterns":["*.sublume-project"]
+        }
+    ],
+    "build_systems":
+    [
+        {
+            "name": "Debug Build",
+            "working_dir":"${project_path}",
+            "cmd": "g++ -c src/*.cpp -std=c++14 -g -Wall -Iinclude -Iinclude/SDL2 && g++ *.o -o bin/Debug/main -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image && start bin/Debug/main",
+            "selector":"source.c++",
+            "shell":true
+        },
+        {
+            "name": "Debug Release",
+            "working_dir":"${project_path}",
+            "cmd": "g++ -c src/*.cpp -std=c++14 -O3 -Wall -Iinclude -Iinclude/SDL2 && g++ *.o -o bin/Release/main -s -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image && start bin/Release/main",
+            "selector":"source.c++",
+            "shell":true
+        }
+    ]
+}
